@@ -756,7 +756,11 @@ main > section {
 
 .visual-portrait {
     position: absolute;
-    inset: 14% 12% 14% 14%;
+    left: 6%;
+    right: 6%;
+    top: 50%;
+    transform: translateY(-50%);
+    aspect-ratio: 16 / 9;
     border-radius: var(--r-md);
     background: linear-gradient(160deg, #0F2E25 0%, #051A14 100%);
     overflow: hidden;
@@ -772,6 +776,43 @@ main > section {
     object-fit: cover;
     object-position: center;
     will-change: transform;
+}
+
+/* Scroll progress line */
+.scroll-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--e-700), var(--e-400), var(--e-300));
+    transform-origin: left center;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+/* Cycling portfolio carousel — portrait is 16:9 so slides fill it exactly */
+.visual-carousel-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0;
+    transition: opacity 0.75s ease;
+}
+.visual-carousel-img.is-active {
+    opacity: 1;
+}
+
+@keyframes label-fade-in {
+    from { opacity: 0; transform: translateY(5px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+.visual-tag-label {
+    display: inline-block;
+    animation: label-fade-in 0.35s ease both;
 }
 
 .visual-portrait-glow {
@@ -1881,35 +1922,35 @@ main > section {
 }
 
 /* =========================================================
-   20. CURSOR (custom dot)
+   20. CURSOR — simple dot
    ========================================================= */
+
 .cursor {
     position: fixed;
     top: 0;
     left: 0;
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
-    background: var(--bone);
+    background: var(--accent, #c8a96e);
     pointer-events: none;
     z-index: 9999;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35), 0 4px 18px rgba(0, 0, 0, 0.45);
     transform: translate(-50%, -50%);
-    transition: width 0.25s var(--ease), height 0.25s var(--ease), background 0.25s var(--ease), box-shadow 0.25s var(--ease);
+    transition: width 0.25s ease, height 0.25s ease, opacity 0.25s ease;
     display: none;
+    will-change: transform;
 }
 
 .cursor.is-link {
-    width: 36px;
-    height: 36px;
-    background: rgba(110, 231, 183, 0.85);
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25), 0 8px 28px rgba(110, 231, 183, 0.35);
+    width: 14px;
+    height: 14px;
+    opacity: 0.7;
 }
 
 @media (pointer: fine) {
     .cursor { display: block; }
     body { cursor: none; }
-    a, button, .work-card, [data-magnetic] { cursor: none; }
+    a, button, [data-cursor-link] { cursor: none; }
 }
 
 /* =========================================================
@@ -1925,6 +1966,69 @@ main > section {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* FOUC fallback — if HomeAnimations.tsx fails to mount (JS error, slow load),
+   reveal elements must never stay invisible. The effect adds animations-init
+   to <html> before GSAP runs; its absence means GSAP never claimed these els. */
+html:not(.animations-init) .reveal,
+html:not(.animations-init) .line-inner,
+html:not(.animations-init) .hero-title .char {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+}
+
+/* =========================================================
+   22. MASKED TEXT REVEAL (.line-mask / .line-inner)
+   =========================================================
+   Each word is wrapped in .line-mask (overflow:hidden) and
+   .line-inner (the animating span).  GSAP slides .line-inner
+   up from y:110% with a 7° rotation for a cinematic reveal.
+   ========================================================= */
+.line-mask {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+    line-height: inherit;
+    /* Extra room so descenders (g, p, y, q) aren't clipped at rest */
+    padding-bottom: 0.2em;
+    margin-bottom: -0.2em;
+}
+
+.line-inner {
+    display: inline-block;
+    transform-origin: bottom left;
+    line-height: inherit;
+    will-change: transform;
+}
+
+/* Ensure headings whose words are split remain block-level */
+h1 .line-mask,
+h2 .line-mask,
+h3 .line-mask {
+    vertical-align: bottom;
+}
+
+/* Body-text word spans for scroll colour reveal — no layout impact */
+.word-dim {
+    display: inline;
+}
+
+/* FOUC: if animations-init never fires, keep body text readable */
+html:not(.animations-init) .word-dim {
+    color: inherit !important;
+}
+
+/* Reduce motion: show everything immediately */
+@media (prefers-reduced-motion: reduce) {
+    .word-dim { color: inherit !important; }
+    .line-inner {
+        transform: none !important;
+        opacity: 1 !important;
+        transition: none !important;
+    }
+}
+
 
 @media (prefers-reduced-motion: reduce) {
     .reveal,
@@ -2126,16 +2230,21 @@ main > section {
 /* =========================================================
    SERVICES PAGE
    ========================================================= */
-.services-grid-section { padding: 0 0 200px; }
+.services-grid-section { padding: 0 0 80px; }
 
 /* Vertical sticky-stack — each card pins as you scroll past, so the next
-   card visually slides over it. Inspired by ochi.design. */
+   card visually slides over it. Inspired by ochi.design.
+
+   IMPORTANT: display:block (not grid) so that position:sticky is bounded
+   by the true block-formatting context, not a grid area.  CSS Grid bounds
+   a sticky element's scroll range to its grid area, which makes the last
+   card release immediately.  padding-bottom creates the scroll distance
+   that keeps card 4 pinned for 100vh after it slides into position.     */
 .services-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0;
+    display: block;
     max-width: 920px;
     margin: 0 auto;
+    padding-bottom: 30vh;
 }
 
 .services-card {
@@ -2155,10 +2264,12 @@ main > section {
     transition: transform 0.6s var(--ease);
 }
 
-.services-card:nth-child(1) { top: 110px; }
-.services-card:nth-child(2) { top: 130px; }
-.services-card:nth-child(3) { top: 150px; }
-.services-card:nth-child(4) { top: 170px; margin-bottom: 0; }
+.services-card:nth-child(1) { top: 110px; z-index: 1; }
+.services-card:nth-child(2) { top: 130px; z-index: 2; }
+.services-card:nth-child(3) { top: 150px; z-index: 3; }
+/* Last card: large margin-bottom so it stays pinned long enough to read
+   before the section scrolls away.  No subsequent card slides over it. */
+.services-card:nth-child(4) { top: 170px; z-index: 4; margin-bottom: 0; }
 
 .services-card-head {
     display: flex;

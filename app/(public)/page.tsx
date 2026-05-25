@@ -1,6 +1,7 @@
 import Link from "next/link";
 import OurWork from "../components/OurWork";
 import ReadingRoom from "../components/ReadingRoom";
+import VisualCarousel from "../components/VisualCarousel";
 import { site, mailto } from "@/lib/site";
 
 export default function Home() {
@@ -97,27 +98,7 @@ export default function Home() {
               <a href="#pricing" className="link-arrow reveal">Pricing for content-focused presentations <span aria-hidden="true">→</span></a>
             </div>
             <div className="what-visual reveal">
-              <div className="visual-frame">
-                <div className="visual-stripes" aria-hidden="true"></div>
-                <div className="visual-portrait">
-                  <img
-                    src="/images/tamara.jpg"
-                    alt="Tamara — fintech CX strategy deck"
-                    className="visual-portrait-img"
-                    data-parallax
-                    data-parallax-speed="0.16"
-                  />
-                  <span className="visual-portrait-glow" aria-hidden="true"></span>
-                </div>
-                <div className="visual-tag glass">
-                  <span className="visual-tag-dot"></span>
-                  Tamara · Fintech CX · 2025
-                </div>
-                <div className="visual-stat glass">
-                  <strong>+312%</strong>
-                  <small>Investor reply rate</small>
-                </div>
-              </div>
+              <VisualCarousel />
             </div>
           </div>
         </section>
