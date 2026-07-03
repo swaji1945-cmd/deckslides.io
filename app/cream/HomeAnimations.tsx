@@ -272,26 +272,26 @@ export default function HomeAnimations() {
 
             const isHero = !!heading.closest(".hero");
 
-            const targets = inners.map(inner => ({
-              el: inner,
-              color: inner.querySelector("em, i") ? "var(--e-400)" : "#F2F4F0",
-            }));
-
-            gsap.set(targets.map(t => t.el), { color: "rgba(242,244,240,0.08)" });
-
-            // Hero: scrub as you scroll away from the section.
-            // Others: scrub as the element scrolls into view.
+            // Pre-revealed (~45%) + fast. White words reveal via colour;
+            // gradient <em> words reveal via opacity so they animate too.
             const trigger = isHero
               ? (heading.closest<HTMLElement>("section") ?? heading)
               : heading;
-            const start = isHero ? "top top"  : "top 80%";
-            const end   = isHero ? "bottom top" : "top 15%";
+            const start = isHero ? "top top"   : "top 96%";
+            const end   = isHero ? "bottom 40%" : "top 72%";
 
             const tl = gsap.timeline({
-              scrollTrigger: { trigger, start, end, scrub: 1 },
+              scrollTrigger: { trigger, start, end, scrub: 0.4 },
             });
-            targets.forEach(({ el, color }, i) => {
-              tl.to(el, { color, duration: 0.4, ease: "none" }, i * 0.12);
+            inners.forEach((inner, i) => {
+              const em = inner.querySelector<HTMLElement>("em, i");
+              if (em) {
+                gsap.set(em, { opacity: 0.4 });
+                tl.to(em, { opacity: 1, duration: 0.3, ease: "none" }, i * 0.025);
+              } else {
+                gsap.set(inner, { color: "rgba(26,26,26,0.4)" });
+                tl.to(inner, { color: "#1A1A1A", duration: 0.3, ease: "none" }, i * 0.025);
+              }
             });
           });
       };
@@ -328,22 +328,19 @@ export default function HomeAnimations() {
             el.style.opacity = "1";
             el.style.transform = "none";
 
-            gsap.set(spans, { color: "rgba(242,244,240,0.10)" });
+            // Pre-revealed (~42%) + fast; opacity so any gradient reveals too.
+            gsap.set(spans, { opacity: 0.42 });
 
             const tl = gsap.timeline({
               scrollTrigger: {
                 trigger: el,
-                start: "top 88%",
-                end: "top 25%",
-                scrub: 1.2,
+                start: "top 97%",
+                end: "top 72%",
+                scrub: 0.4,
               },
             });
             spans.forEach((span, i) => {
-              tl.to(
-                span,
-                { color: "rgba(242,244,240,0.82)", duration: 0.3, ease: "none" },
-                i * 0.06
-              );
+              tl.to(span, { opacity: 1, duration: 0.3, ease: "none" }, i * 0.02);
             });
           });
       };
@@ -372,23 +369,20 @@ export default function HomeAnimations() {
           const spans = splitWordsFlat(el);
           if (!spans.length) return;
 
-          gsap.set(spans, { color: "rgba(242,244,240,0.10)" });
+          // Pre-revealed (~45%) + faster so the hero copy reads almost at once.
+          gsap.set(spans, { opacity: 0.45 });
 
           const section = el.closest<HTMLElement>("section");
           const tl = gsap.timeline({
             scrollTrigger: {
               trigger: section ?? el,
               start: "top top",
-              end: "bottom -20%",
-              scrub: 1.2,
+              end: "bottom 55%",
+              scrub: 0.5,
             },
           });
           spans.forEach((span, i) => {
-            tl.to(
-              span,
-              { color: "rgba(242,244,240,0.82)", duration: 0.3, ease: "none" },
-              i * 0.06
-            );
+            tl.to(span, { opacity: 1, duration: 0.3, ease: "none" }, i * 0.02);
           });
         });
 

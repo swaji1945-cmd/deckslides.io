@@ -38,13 +38,13 @@ const PROJECTS: Project[] = [
   { folderName: "Dominique-geroulis", displayName: "Dominique Geroulis", tags: ["Personal brand", "Identity"] },
 ];
 
-// rotating deep, on-brand backgrounds (dark emerald family — not bright)
+// rotating cream / grey backgrounds (only the two site light tones)
 const THEMES = [
-  "linear-gradient(155deg, #0f2c23 0%, #091c17 100%)",
-  "linear-gradient(155deg, #0b2730 0%, #08171c 100%)",
-  "linear-gradient(155deg, #182216 0%, #0d130b 100%)",
-  "linear-gradient(155deg, #131c24 0%, #0b1015 100%)",
-  "linear-gradient(155deg, #122a2a 0%, #0a1817 100%)",
+  "linear-gradient(155deg, #F9F1CF 0%, #EFEFEF 100%)",
+  "linear-gradient(155deg, #EFEFEF 0%, #F9F1CF 100%)",
+  "linear-gradient(155deg, #F9F1CF 0%, #EFEFEF 100%)",
+  "linear-gradient(155deg, #EFEFEF 0%, #F9F1CF 100%)",
+  "linear-gradient(155deg, #F9F1CF 0%, #EFEFEF 100%)",
 ];
 
 export default function PortfolioStack() {
@@ -113,7 +113,7 @@ export default function PortfolioStack() {
         <div className="pstack-track">
           {PROJECTS.map((p, idx) => (
             <Link
-              href={`/portfolio/${p.folderName}`}
+              href={`/light/portfolio/${p.folderName}`}
               key={p.folderName}
               className="pstack-card"
               style={{ ["--card-bg" as string]: THEMES[idx % THEMES.length] }}
@@ -123,7 +123,7 @@ export default function PortfolioStack() {
                 className="pstack-img"
                 src={`/${p.folderName}/1.svg`}
                 alt={`${p.displayName} deck cover`}
-                loading="lazy"
+                loading="eager"
                 draggable={false}
               />
               <span className="pstack-scrim" aria-hidden="true" />

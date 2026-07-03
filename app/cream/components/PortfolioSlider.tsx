@@ -8,21 +8,21 @@ const SLIDES = [
     body: "INVESTOR BRIEF FOR A DUBAI-BASED\nREAL-ESTATE PLATFORM RAISING\nSERIES B — DESIGNED TO TURN\nINSTITUTIONAL SKEPTICS INTO\nFULL-CONVICTION BELIEVERS.",
     img:   "/Revest/10.svg",   // full-width background
     thumb: "/Revest/5.svg",    // panel thumbnail
-    href:  "/portfolio/Revest",
+    href:  "/light/portfolio/Revest",
   },
   {
     title: "TAMARA",
     body: "FROM TRANSACTIONS TO\nRELATIONSHIPS — ELEVATING\nTAMARA'S CX STRATEGY FOR THE\nMENA REGION'S FASTEST-GROWING\nFINTECH PLATFORM.",
     img:   "/Tamara/5.svg",    // full-width background
     thumb: "/Tamara/2.svg",    // panel thumbnail
-    href:  "/portfolio/Tamara",
+    href:  "/light/portfolio/Tamara",
   },
   {
     title: "ALIVELY",
     body: "SCIENCE-BACKED LONGEVITY\nSTARTUP ENTERING SERIES A —\nA DECK ENGINEERED TO COMMAND\nPREMIUM VALUATIONS AND FULL-\nROOM INVESTOR CONVICTION.",
     img:   "/Alively/2.svg",   // full-width background (lifestyle photos)
     thumb: "/Alively/7.svg",   // panel thumbnail (phone mockup)
-    href:  "/portfolio/Alively",
+    href:  "/light/portfolio/Alively",
   },
 ];
 

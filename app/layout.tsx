@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import "./globals.css";
 import Cursor from "./components/Cursor";
 import SmoothScroll from "./components/SmoothScroll";
 import Parallax from "./components/Parallax";

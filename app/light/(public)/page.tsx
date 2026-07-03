@@ -1,16 +1,21 @@
 import Link from "next/link";
-import OurWork from "../components/OurWork";
 import ReadingRoom from "../components/ReadingRoom";
 import VisualCarousel from "../components/VisualCarousel";
-import { site, mailto } from "@/lib/site";
+import PortfolioSlider from "../components/PortfolioSlider";
+import TestimonialsReveal from "../components/TestimonialsReveal";
+import CubeServices from "../components/CubeServices";
+import PricingSlider from "../components/PricingSlider";
+import HeroCanvas from "../components/HeroCanvas";
+import { site } from "@/lib/site";
 
 export default function Home() {
   return (
     <main>
         {/* HERO */}
         <section className="hero">
+          <HeroCanvas />
           <div className="container hero-inner">
-            <span className="eyebrow reveal">Premium presentation studio · Est. 2026</span>
+            <span className="eyebrow hero-eyebrow reveal">Premium presentation studio · Est. 2026</span>
             <h1 className="hero-title" data-split>Create presentations that <em>command the room.</em></h1>
             <p className="hero-sub reveal">We design high-impact, investor-ready pitch decks for teams that can’t afford to look average. Built for founders, startups, and executives who already have the story — we turn it into a visual experience that builds trust instantly.</p>
             <div className="hero-cta reveal">
@@ -18,23 +23,7 @@ export default function Home() {
                 Start your project
                 <span className="btn-arrow" aria-hidden="true">→</span>
               </a>
-              <Link href="/portfolio" className="btn btn--ghost btn--lg">View portfolio</Link>
-            </div>
-            <div className="hero-meta reveal">
-              <div>
-                <span className="hero-meta-num">3000+</span>
-                <span className="hero-meta-lbl">Decks designed</span>
-              </div>
-              <div className="hero-meta-divider" aria-hidden="true"></div>
-              <div>
-                <span className="hero-meta-num">$50M+</span>
-                <span className="hero-meta-lbl">Raised by clients</span>
-              </div>
-              <div className="hero-meta-divider" aria-hidden="true"></div>
-              <div>
-                <span className="hero-meta-num">48h</span>
-                <span className="hero-meta-lbl">First draft turnaround</span>
-              </div>
+              <Link href="/light/portfolio" className="btn btn--ghost btn--lg">View portfolio</Link>
             </div>
           </div>
           <div className="hero-scroll" aria-hidden="true">
@@ -83,6 +72,26 @@ export default function Home() {
           </div>
         </section>
 
+        {/* STATS BAND */}
+        <section className="stat-band">
+          <div className="container stat-band-grid">
+            <div className="stat-band-item reveal">
+              <span className="stat-band-num">3000+</span>
+              <span className="stat-band-lbl">Decks designed</span>
+            </div>
+            <div className="stat-band-divider" aria-hidden="true"></div>
+            <div className="stat-band-item reveal">
+              <span className="stat-band-num">$50M+</span>
+              <span className="stat-band-lbl">Raised by clients</span>
+            </div>
+            <div className="stat-band-divider" aria-hidden="true"></div>
+            <div className="stat-band-item reveal">
+              <span className="stat-band-num">48h</span>
+              <span className="stat-band-lbl">First draft turnaround</span>
+            </div>
+          </div>
+        </section>
+
         {/* WHAT WE DO */}
         <section className="what" id="about">
           <div className="container what-grid">
@@ -105,68 +114,39 @@ export default function Home() {
 
         {/* HOW IT WORKS */}
         <section className="how" id="services">
-          <div className="container how-grid">
-            <aside className="how-side glass reveal">
+          <div className="container">
+            <header className="section-head section-head--center reveal">
               <span className="eyebrow">Our process</span>
-              <h2>How it<br /><em>works?</em></h2>
-              <p>A refined process. Built for speed and precision.</p>
-              <div className="how-meta">
-                <div>
-                  <span className="how-meta-num">7d</span>
-                  <span className="how-meta-lbl">Average turnaround</span>
-                </div>
-                <div>
-                  <span className="how-meta-num">∞</span>
-                  <span className="how-meta-lbl">Iteration rounds</span>
-                </div>
-              </div>
-            </aside>
-            <ol className="steps">
-              <li className="step reveal">
-                <span className="step-num">01</span>
-                <div className="step-body">
-                  <h3>Discovery</h3>
-                  <p>Understanding your goals, audience, and content.</p>
-                </div>
-                <span className="step-tag">Day 1</span>
+              <h2>How it <em>works?</em></h2>
+              <p className="section-sub">A refined process — built for speed and precision. Hover each step.</p>
+            </header>
+
+            <ul className="how-stack">
+              <li className="how-item how-item--left">
+                <div className="how-title"><span className="how-num">01</span>Discovery</div>
+                <div className="how-desc">Understanding your goals, audience, and content.</div>
               </li>
-              <li className="step reveal">
-                <span className="step-num">02</span>
-                <div className="step-body">
-                  <h3>Content review</h3>
-                  <p>You bring the narrative — we structure it visually.</p>
-                </div>
-                <span className="step-tag">Day 1–2</span>
+              <li className="how-item how-item--right">
+                <div className="how-title"><span className="how-num">02</span>Content review</div>
+                <div className="how-desc">You bring the narrative — we structure it visually.</div>
               </li>
-              <li className="step reveal">
-                <span className="step-num">03</span>
-                <div className="step-body">
-                  <h3>Design execution</h3>
-                  <p>Premium layouts, sharp hierarchy, and refined visuals.</p>
-                </div>
-                <span className="step-tag">Day 2–5</span>
+              <li className="how-item how-item--center">
+                <div className="how-title"><span className="how-num">03</span>Design execution</div>
+                <div className="how-desc">Premium layouts, sharp hierarchy, and refined visuals.</div>
               </li>
-              <li className="step reveal">
-                <span className="step-num">04</span>
-                <div className="step-body">
-                  <h3>Feedback loop</h3>
-                  <p>Iterations until everything feels right.</p>
-                </div>
-                <span className="step-tag">Day 5–6</span>
+              <li className="how-item how-item--left">
+                <div className="how-title"><span className="how-num">04</span>Feedback loop</div>
+                <div className="how-desc">Iterations until everything feels right.</div>
               </li>
-              <li className="step reveal">
-                <span className="step-num">05</span>
-                <div className="step-body">
-                  <h3>Final delivery</h3>
-                  <p>Fully editable files + high-resolution exports.</p>
-                </div>
-                <span className="step-tag">Day 7</span>
+              <li className="how-item how-item--right">
+                <div className="how-title"><span className="how-num">05</span>Final delivery</div>
+                <div className="how-desc">Fully editable files + high-resolution exports.</div>
               </li>
-            </ol>
+            </ul>
           </div>
         </section>
 
-        <OurWork />
+        <PortfolioSlider />
 
         {/* RESULTS */}
         <section className="results">
@@ -196,117 +176,14 @@ export default function Home() {
               <h2 className="reveal">Pricing built for <em>every stage.</em></h2>
               <p className="section-sub reveal">Custom quotes available based on scope.</p>
             </header>
-            <div className="price-grid">
-              <article className="price-card glass reveal">
-                <header className="price-head">
-                  <span className="price-tag">Full Package</span>
-                  <p>Everything you need to start your business, test the concept, and approach investors.</p>
-                </header>
-                <ul className="price-feats">
-                  <li>Logo &amp; brand identity</li>
-                  <li>Investor pitch deck</li>
-                  <li>Financial model</li>
-                  <li>One-page landing site</li>
-                </ul>
-                <div className="price-foot">
-                  <div>
-                    <span className="price-from">From</span>
-                    <span className="price-num">$5,000</span>
-                  </div>
-                  <a href={mailto("Full Package inquiry")} className="btn btn--ghost btn--block">Start project</a>
-                </div>
-              </article>
-              <article className="price-card price-card--featured reveal">
-                <span className="badge">Most popular</span>
-                <div className="price-card-inner glass">
-                  <header className="price-head">
-                    <span className="price-tag">Investor Deck</span>
-                    <p>We dive deep into your business and build a deck that tells your story the right way.</p>
-                  </header>
-                  <ul className="price-feats">
-                    <li>Content &amp; narrative</li>
-                    <li>Research &amp; strategy</li>
-                    <li>Premium slide design</li>
-                    <li>Editable source files</li>
-                  </ul>
-                  <div className="price-foot">
-                    <div>
-                      <span className="price-from">From</span>
-                      <span className="price-num">$2,000</span>
-                    </div>
-                    <a href={mailto("Investor Deck inquiry")} className="btn btn--primary btn--block">Start project</a>
-                  </div>
-                </div>
-              </article>
-              <article className="price-card glass reveal">
-                <header className="price-head">
-                  <span className="price-tag">Consultation</span>
-                  <p>Detailed feedback and a second opinion from someone who’s seen hundreds of decks.</p>
-                </header>
-                <ul className="price-feats">
-                  <li>Slide-by-slide review</li>
-                  <li>Narrative gap analysis</li>
-                  <li>Investor-readiness score</li>
-                  <li>30-minute live call</li>
-                </ul>
-                <div className="price-foot">
-                  <div>
-                    <span className="price-from">From</span>
-                    <span className="price-num">$250</span>
-                  </div>
-                  <a href={mailto("Consultation inquiry")} className="btn btn--ghost btn--block">Book consult</a>
-                </div>
-              </article>
-            </div>
+            <PricingSlider />
           </div>
         </section>
 
         {/* TESTIMONIALS */}
-        <section className="testimonials" id="testimonials">
-          <div className="testi-bg" aria-hidden="true">
-            <div className="testi-grid-pattern"></div>
-            <div className="testi-glow"></div>
-          </div>
-          <div className="container">
-            <header className="section-head section-head--center">
-              <span className="eyebrow reveal">Testimonials</span>
-              <h2 className="reveal">What founders <em>say.</em></h2>
-              <p className="section-sub reveal">Discover what teams who’ve raised with Pitch Deck say about the process — and the decks that got them there.</p>
-            </header>
-            <div className="testi-grid">
-              <article className="testi-card reveal">
-                <div className="testi-head">
-                  <span className="avatar avatar--1">JN</span>
-                  <div className="testi-id">
-                    <strong>Jack Nate</strong>
-                    <small>Founder · Linework</small>
-                  </div>
-                </div>
-                <p>Since integrating Pitch Deck into our raise process, we’ve seen a significant lift in investor reply rates and conviction at the first call.</p>
-              </article>
-              <article className="testi-card testi-card--featured reveal">
-                <div className="testi-head">
-                  <span className="avatar avatar--2">NC</span>
-                  <div className="testi-id">
-                    <strong>Nancy Chen</strong>
-                    <small>COO · Tamara</small>
-                  </div>
-                </div>
-                <p>I’ve tested several deck studios, but one stands out for its intuitive process and comprehensive understanding of what investors actually look for.</p>
-              </article>
-              <article className="testi-card reveal">
-                <div className="testi-head">
-                  <span className="avatar avatar--4">EM</span>
-                  <div className="testi-id">
-                    <strong>Elena Marsh</strong>
-                    <small>Head of Strategy · Revest</small>
-                  </div>
-                </div>
-                <p>Working with Pitch Deck has surpassed our expectations — invaluable narrative and visual support as our business continues to grow.</p>
-              </article>
-            </div>
-          </div>
-        </section>
+        <TestimonialsReveal />
+
+        <CubeServices />
 
         <ReadingRoom />
 
@@ -314,7 +191,7 @@ export default function Home() {
         <section className="contact" id="contact">
           <div className="container">
             <nav className="contact-crumb reveal" aria-label="Section">
-              <Link href="/">Home</Link>
+              <Link href="/light">Home</Link>
               <span className="crumb-dot" aria-hidden="true">●</span>
               <span>Contact</span>
             </nav>

@@ -17,19 +17,21 @@ async function isValidSession(token: string | undefined, secret: string) {
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
-  // Only guard /admin/* routes (skip /admin/login)
-  if (!pathname.startsWith("/admin")) return NextResponse.next();
-  if (pathname === "/admin/login") return NextResponse.next();
+  // Two admin panels share this guard: the old dark site's /admin/* and the
+  // new light site's /light/admin/*. Each has its own login page to skip.
+  const adminBase = pathname.startsWith("/light/admin") ? "/light/admin" : "/admin";
+  if (!pathname.startsWith(adminBase)) return NextResponse.next();
+  if (pathname === `${adminBase}/login`) return NextResponse.next();
 
   const secret = process.env.SESSION_SECRET;
   if (!secret) {
-    return NextResponse.redirect(new URL("/admin/login", req.url));
+    return NextResponse.redirect(new URL(`${adminBase}/login`, req.url));
   }
 
   const token = req.cookies.get(SESSION_COOKIE)?.value;
   const ok = await isValidSession(token, secret);
   if (!ok) {
-    const url = new URL("/admin/login", req.url);
+    const url = new URL(`${adminBase}/login`, req.url);
     url.searchParams.set("next", pathname);
     return NextResponse.redirect(url);
   }
@@ -38,5 +40,5 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/admin/:path*"],
+  matcher: ["/admin/:path*", "/light/admin/:path*"],
 };

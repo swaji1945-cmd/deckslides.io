@@ -1,6 +1,5 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import PortfolioStack from "../../components/PortfolioStack";
 
 export const metadata: Metadata = {
   title: "Portfolio — Pitch Deck",
@@ -8,7 +7,28 @@ export const metadata: Metadata = {
     "Selected pitch decks, investor briefs, and presentations designed by Pitch Deck for founders, startups, and executives across sport, real estate, fintech, and motorsport.",
 };
 
-const PROJECT_COUNT = 20;
+const DECK_PROJECTS = [
+  { folderName: "Alively", displayName: "Alively" },
+  { folderName: "Impactive", displayName: "Impactive" },
+  { folderName: "Outland-creative", displayName: "Outland Creative" },
+  { folderName: "Revest", displayName: "Revest" },
+  { folderName: "Artura", displayName: "Artura" },
+  { folderName: "Barmy-army", displayName: "Barmy Army" },
+  { folderName: "Black-sheep-foods", displayName: "Black Sheep Foods" },
+  { folderName: "Blank-SIM", displayName: "Blank SIM" },
+  { folderName: "Dubai-culture", displayName: "Dubai Culture" },
+  { folderName: "Govmaven", displayName: "Govmaven" },
+  { folderName: "Gung", displayName: "Gung" },
+  { folderName: "Moon-boo-sun", displayName: "Moon Boo Sun" },
+  { folderName: "Snow-cell", displayName: "Snow Cell" },
+  { folderName: "Sumeria", displayName: "Sumeria" },
+  { folderName: "Tamara", displayName: "Tamara" },
+  { folderName: "Arctica-home", displayName: "Arctica Home" },
+  { folderName: "Skinetix", displayName: "Skinetix" },
+  { folderName: "Bahrain-rugby-club", displayName: "Bahrain Rugby Club" },
+  { folderName: "Dominique-geroulis", displayName: "Dominique Geroulis" },
+  { folderName: "noonan-performance", displayName: "Noonan Performance" },
+];
 
 export default function PortfolioIndex() {
   return (
@@ -25,7 +45,7 @@ export default function PortfolioIndex() {
           </p>
           <div className="work-hero-meta reveal">
             <div>
-              <span className="hero-meta-num">{PROJECT_COUNT}</span>
+              <span className="hero-meta-num">{DECK_PROJECTS.length}</span>
               <span className="hero-meta-lbl">Featured projects</span>
             </div>
             <div className="hero-meta-divider" aria-hidden="true"></div>
@@ -42,16 +62,46 @@ export default function PortfolioIndex() {
         </div>
       </section>
 
-      <section className="work-cases">
+      <section className="work-year">
         <div className="container">
-          <header className="work-cases-head">
-            <span className="eyebrow reveal">Cases</span>
-            <h2 className="reveal">Projects we&rsquo;re <em>proud of.</em></h2>
-            <p className="section-sub reveal">
-              Substantial engagements — designed and communicated with intent. Scroll to move through each case.
-            </p>
-          </header>
-          <PortfolioStack />
+          <div className="work-grid">
+            {DECK_PROJECTS.map((project, idx) => {
+              const frameClass = `work-frame--${(idx % 4) + 1}`;
+              const href = `/portfolio/${project.folderName}`;
+              return (
+                <article className="work-card reveal" key={project.folderName}>
+                  <Link
+                    href={href}
+                    className={`work-frame ${frameClass}`}
+                    aria-label={`${project.displayName} case study`}
+                  >
+                    <div className="work-image">
+                      <img
+                        src={`/${project.folderName}/1.svg`}
+                        alt={`${project.displayName} cover`}
+                        loading="lazy"
+                        data-parallax
+                        data-parallax-speed="0.28"
+                      />
+                    </div>
+                    <span className="work-cover-tag">View case</span>
+                  </Link>
+                  <div className="work-meta-row">
+                    <div className="work-meta-text">
+                      <h3>{project.displayName}</h3>
+                    </div>
+                    <Link
+                      href={href}
+                      className="work-arrow"
+                      aria-label={`Open ${project.displayName} case study`}
+                    >
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                    </Link>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
         </div>
       </section>
 
