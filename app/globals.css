@@ -1,4 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Inter+Tight:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Prompt:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300&display=swap');
+/* Heuvel Grotesk — brand display face, self-hosted from /public/font.
+   NOTE: DEMO files; swap for licensed files (same names) before production.
+   unicode-range excludes digits 0-9 (demo sabotages them with warning
+   glyphs) so numbers fall back to Schibsted. Remove once licensed. */
+@font-face {
+    font-family: 'Heuvel Grotesk';
+    src: url('/font/HeuvelGroteskDEMO-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0000-002F, U+003A-10FFFF;
+}
+@font-face {
+    font-family: 'Heuvel Grotesk';
+    src: url('/font/HeuvelGroteskDEMO-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0000-002F, U+003A-10FFFF;
+}
+@font-face {
+    font-family: 'Heuvel Grotesk';
+    src: url('/font/HeuvelGroteskDEMO-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0000-002F, U+003A-10FFFF;
+}
+@font-face {
+    font-family: 'Heuvel Grotesk';
+    src: url('/font/HeuvelGroteskDEMO-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0000-002F, U+003A-10FFFF;
+}
 
 /* =========================================================
    1. TOKENS
@@ -81,11 +117,10 @@ html {
 }
 
 body {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Prompt', system-ui, sans-serif;
     color: var(--text);
     background: var(--bg);
     line-height: 1.55;
-    font-feature-settings: 'ss01', 'cv11';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
@@ -120,7 +155,7 @@ h2,
 h3,
 h4,
 .font-display {
-    font-family: 'Inter Tight', 'Inter', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', 'Prompt', sans-serif;
     font-weight: 600;
     letter-spacing: -0.035em;
     line-height: 1.04;
@@ -151,7 +186,7 @@ h3 em .char {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Prompt', sans-serif;
     font-size: 0.72rem;
     font-weight: 500;
     letter-spacing: 0.18em;
@@ -368,7 +403,7 @@ main > section {
     justify-content: center;
     gap: 10px;
     padding: var(--pad-y) var(--pad-x);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Prompt', sans-serif;
     font-size: 0.92rem;
     font-weight: 500;
     letter-spacing: -0.005em;
@@ -532,7 +567,7 @@ main > section {
 }
 
 .hero-meta-num {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 1.7rem;
     font-weight: 600;
     letter-spacing: -0.04em;
@@ -620,7 +655,7 @@ main > section {
 }
 
 .logo-pill {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 1.5rem;
     font-weight: 600;
     letter-spacing: 0.05em;
@@ -689,7 +724,7 @@ main > section {
 }
 
 .quote-mark {
-    font-family: 'Inter Tight', serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', serif;
     font-size: 3.5rem;
     line-height: 0.6;
     color: var(--e-500);
@@ -869,7 +904,7 @@ main > section {
 }
 
 .visual-stat strong {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 1.4rem;
     font-weight: 600;
     background: var(--accent-grad-text);
@@ -931,7 +966,7 @@ main > section {
 }
 
 .how-meta-num {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 1.6rem;
     font-weight: 600;
     background: var(--accent-grad-text);
@@ -974,7 +1009,7 @@ main > section {
 }
 
 .step-num {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 2.4rem;
     font-weight: 500;
     letter-spacing: -0.04em;
@@ -1198,7 +1233,7 @@ main > section {
 
 .stat-num {
     display: block;
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: clamp(4rem, 9vw, 7rem);
     font-weight: 600;
     letter-spacing: -0.05em;
@@ -1306,7 +1341,7 @@ main > section {
 
 .price-tag {
     display: inline-block;
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 1.35rem;
     font-weight: 600;
     margin-bottom: 12px;
@@ -1368,7 +1403,7 @@ main > section {
 }
 
 .price-num {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 2.6rem;
     font-weight: 600;
     letter-spacing: -0.04em;
@@ -1484,7 +1519,7 @@ main > section {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-weight: 600;
     font-size: 1.05rem;
     letter-spacing: -0.02em;
@@ -1500,7 +1535,7 @@ main > section {
 
 .testi-id strong {
     display: block;
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 1.02rem;
     font-weight: 600;
     color: var(--bone);
@@ -1577,7 +1612,7 @@ main > section {
     position: absolute;
     top: 14px;
     left: 14px;
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 0.7rem;
     color: var(--text-mute);
     letter-spacing: 0.18em;
@@ -1803,7 +1838,7 @@ main > section {
 }
 
 .contact-meta-item dd {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 1.05rem;
     font-weight: 600;
     color: var(--bone);
@@ -1870,7 +1905,7 @@ main > section {
 
 .footer-email {
     display: inline-block;
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 1.05rem;
     color: var(--text);
     border-bottom: 1px solid var(--border-strong);
@@ -2104,7 +2139,7 @@ html:not(.animations-init) .word-dim {
 }
 
 .page-hero-title {
-    font-family: 'Inter Tight', 'Inter', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', 'Prompt', sans-serif;
     font-size: clamp(2.6rem, 7vw, 5.8rem);
     font-weight: 600;
     letter-spacing: -0.045em;
@@ -2145,7 +2180,7 @@ html:not(.animations-init) .word-dim {
 }
 .page-body-prose > * + * { margin-top: 1.1em; }
 .page-body-prose h2 {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 1.7rem;
     font-weight: 600;
     color: var(--text);
@@ -2177,7 +2212,7 @@ html:not(.animations-init) .word-dim {
 .page-stats-grid > div:last-child { border-right: none; padding-right: 0; }
 
 .page-stat-num {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: clamp(2.2rem, 4.4vw, 3.4rem);
     font-weight: 600;
     letter-spacing: -0.03em;
@@ -2199,7 +2234,7 @@ html:not(.animations-init) .word-dim {
     text-align: center;
 }
 .page-cta h2 {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: clamp(2rem, 4.4vw, 3.6rem);
     font-weight: 600;
     letter-spacing: -0.03em;
@@ -2277,7 +2312,7 @@ html:not(.animations-init) .word-dim {
     gap: 18px;
 }
 .services-card-num {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 0.78rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
@@ -2285,7 +2320,7 @@ html:not(.animations-init) .word-dim {
     flex-shrink: 0;
 }
 .services-card-title {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: clamp(1.4rem, 2.4vw, 1.8rem);
     font-weight: 600;
     letter-spacing: -0.02em;
@@ -2361,14 +2396,14 @@ html:not(.animations-init) .word-dim {
 }
 .services-process-step:last-child { border-bottom: none; }
 .services-process-num {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 1.3rem;
     color: var(--text-mute);
     letter-spacing: -0.02em;
     font-weight: 500;
 }
 .services-process-body h3 {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 1.2rem;
     font-weight: 600;
     margin: 0 0 4px;
@@ -2382,7 +2417,7 @@ html:not(.animations-init) .word-dim {
 }
 .services-process-day {
     text-align: right;
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 0.78rem;
     letter-spacing: 0.16em;
     text-transform: uppercase;
@@ -2421,7 +2456,7 @@ html:not(.animations-init) .word-dim {
     margin-top: 40px;
 }
 .pricing-faq-item h3 {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 1.1rem;
     font-weight: 600;
     color: var(--text);
@@ -2454,7 +2489,7 @@ html:not(.animations-init) .word-dim {
 }
 
 .work-hero-title {
-    font-family: 'Inter Tight', 'Inter', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', 'Prompt', sans-serif;
     font-size: clamp(2.6rem, 7vw, 5.8rem);
     font-weight: 600;
     letter-spacing: -0.045em;
@@ -2502,7 +2537,7 @@ html:not(.animations-init) .word-dim {
     border-bottom: 1px dashed var(--border);
 }
 .work-year-label {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: clamp(2.2rem, 4vw, 3.4rem);
     font-weight: 500;
     letter-spacing: -0.03em;
@@ -2510,7 +2545,7 @@ html:not(.animations-init) .word-dim {
     line-height: 1;
 }
 .work-year-count {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 0.78rem;
     text-transform: uppercase;
     letter-spacing: 0.18em;
@@ -2523,7 +2558,7 @@ html:not(.animations-init) .word-dim {
     margin-top: 40px;
 }
 .work-cta h2 {
-    font-family: 'Inter Tight', 'Inter', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', 'Prompt', sans-serif;
     font-size: clamp(2rem, 4.4vw, 3.6rem);
     font-weight: 600;
     letter-spacing: -0.03em;
@@ -2564,7 +2599,7 @@ html:not(.animations-init) .word-dim {
     align-items: center;
     color: var(--text-mute);
     font-size: 0.9rem;
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     margin-bottom: 32px;
     transition: color 0.2s var(--ease);
 }
@@ -2579,7 +2614,7 @@ html:not(.animations-init) .word-dim {
 }
 
 .case-tag {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 0.78rem;
     text-transform: uppercase;
     letter-spacing: 0.18em;
@@ -2588,7 +2623,7 @@ html:not(.animations-init) .word-dim {
 }
 
 .case-year {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 0.78rem;
     letter-spacing: 0.18em;
     color: var(--text-mute);
@@ -2597,7 +2632,7 @@ html:not(.animations-init) .word-dim {
 }
 
 .case-title {
-    font-family: 'Inter Tight', 'Inter', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', 'Prompt', sans-serif;
     font-size: clamp(2.4rem, 6vw, 5rem);
     font-weight: 600;
     letter-spacing: -0.045em;
@@ -2657,7 +2692,7 @@ html:not(.animations-init) .word-dim {
 .case-meta-item:last-child { border-right: none; }
 .case-meta-item:first-child { padding-left: 0; }
 .case-meta-item dt {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 0.72rem;
     text-transform: uppercase;
     letter-spacing: 0.18em;
@@ -2667,7 +2702,7 @@ html:not(.animations-init) .word-dim {
     margin: 0;
     font-size: 1rem;
     color: var(--text);
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-weight: 500;
 }
 
@@ -2728,7 +2763,7 @@ html:not(.animations-init) .word-dim {
     align-items: center;
     color: var(--text-mute);
     font-size: 0.9rem;
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     margin-bottom: 32px;
     transition: color 0.2s var(--ease);
 }
@@ -2740,7 +2775,7 @@ html:not(.animations-init) .word-dim {
 }
 
 .post-title {
-    font-family: 'Inter Tight', 'Inter', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', 'Prompt', sans-serif;
     font-size: clamp(2.2rem, 5.4vw, 4.4rem);
     font-weight: 600;
     letter-spacing: -0.04em;
@@ -2761,7 +2796,7 @@ html:not(.animations-init) .word-dim {
     display: inline-flex;
     align-items: center;
     gap: 14px;
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 0.88rem;
     color: var(--text-mute);
 }
@@ -2797,7 +2832,7 @@ html:not(.animations-init) .word-dim {
 
 .post-body > * + * { margin-top: 1.1em; }
 .post-body h2 {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 1.8rem;
     font-weight: 600;
     color: var(--text);
@@ -2807,7 +2842,7 @@ html:not(.animations-init) .word-dim {
     line-height: 1.2;
 }
 .post-body h3 {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 1.35rem;
     font-weight: 600;
     color: var(--text);
@@ -2866,3 +2901,58 @@ html:not(.animations-init) .word-dim {
     border-top: 1px solid var(--border);
 }
 
+
+
+/* =========================================================
+   TYPE-MATCH LAYER — same type system as /light & /cream:
+   Regular (400) display, Light (300) body, identical sizes.
+   Colors/design of the dark site stay untouched.
+   ========================================================= */
+body {
+    font-size: 15px;
+    line-height: 1.7;
+    font-weight: 300;
+}
+
+h1, h2, h3, h4, .font-display {
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+}
+
+.hero-title {
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 0.95;
+}
+
+.hero-sub {
+    font-weight: 300;
+}
+
+h1 em, h2 em, h3 em,
+h1 em .char, h2 em .char, h3 em .char {
+    font-weight: 400;
+}
+
+.eyebrow {
+    font-weight: 300;
+    letter-spacing: 0.14em;
+}
+
+.how-title {
+    font-weight: 400;
+}
+
+.stat-num {
+    font-weight: 500;
+}
+
+.stat-band-num {
+    font-weight: 400;
+}
+
+.footer::after {
+    font-weight: 400;
+}

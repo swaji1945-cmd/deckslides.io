@@ -6,7 +6,7 @@
     min-height: 100vh;
     background: #0a0e0d;
     color: #e6f1ec;
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Prompt', system-ui, sans-serif;
     padding: 0;
     position: relative;
 }
@@ -39,7 +39,7 @@
 }
 
 .admin-login-title {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 2rem;
     font-weight: 600;
     letter-spacing: -0.03em;
@@ -59,7 +59,7 @@
     gap: 8px;
 }
 .admin-field > span {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 0.78rem;
     text-transform: uppercase;
     letter-spacing: 0.14em;
@@ -102,7 +102,7 @@
     border: 1px solid rgba(255, 255, 255, 0.12);
     background: rgba(255, 255, 255, 0.03);
     color: inherit;
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 0.95rem;
     font-weight: 500;
     cursor: pointer;
@@ -142,7 +142,7 @@
 
 .admin-bar-left { display: flex; align-items: center; gap: 28px; }
 .admin-bar-title {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-weight: 600;
     font-size: 1.1rem;
     letter-spacing: -0.01em;
@@ -159,7 +159,7 @@
 .admin-tab {
     padding: 8px 18px;
     border-radius: 999px;
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 0.88rem;
     color: rgba(230, 241, 236, 0.6);
     cursor: pointer;
@@ -184,7 +184,7 @@
     margin-bottom: 28px;
 }
 .admin-section-head h1 {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 2.2rem;
     font-weight: 600;
     letter-spacing: -0.025em;
@@ -208,7 +208,7 @@
 }
 .admin-table tr:last-child td { border-bottom: none; }
 .admin-table th {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-weight: 500;
     font-size: 0.78rem;
     text-transform: uppercase;
@@ -224,7 +224,7 @@
     gap: 6px;
     padding: 4px 10px;
     border-radius: 999px;
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 0.74rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -317,7 +317,7 @@
     border-radius: 7px;
     background: transparent;
     color: rgba(230, 241, 236, 0.7);
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 0.85rem;
     cursor: pointer;
     transition: background 0.12s, color 0.12s;
@@ -334,12 +334,12 @@
 }
 .admin-editor-content > * + * { margin-top: 1em; }
 .admin-editor-content h2 {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 1.6rem; font-weight: 600;
     margin-top: 1.6em; letter-spacing: -0.02em;
 }
 .admin-editor-content h3 {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 1.25rem; font-weight: 600;
     margin-top: 1.4em;
 }
@@ -364,7 +364,7 @@
 .admin-autosave {
     font-size: 0.78rem;
     color: rgba(230, 241, 236, 0.4);
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
 }
 
 @media (max-width: 760px) {

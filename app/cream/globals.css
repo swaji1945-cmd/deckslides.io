@@ -1,4 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=Inter+Tight:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Prompt:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300&display=swap');
+/* Heuvel Grotesk — the PDF's actual display face, self-hosted from /public/font.
+   NOTE: DEMO files; swap for licensed files (same names) before production. */
+@font-face {
+    font-family: 'Heuvel Grotesk';
+    src: url('/font/HeuvelGroteskDEMO-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+    /* DEMO file sabotages digits with warning glyphs — serve everything EXCEPT 0-9,
+       so numbers fall back to Schibsted. Remove this line once licensed. */
+    unicode-range: U+0000-002F, U+003A-10FFFF;
+}
+@font-face {
+    font-family: 'Heuvel Grotesk';
+    src: url('/font/HeuvelGroteskDEMO-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    /* DEMO file sabotages digits with warning glyphs — serve everything EXCEPT 0-9,
+       so numbers fall back to Schibsted. Remove this line once licensed. */
+    unicode-range: U+0000-002F, U+003A-10FFFF;
+}
+@font-face {
+    font-family: 'Heuvel Grotesk';
+    src: url('/font/HeuvelGroteskDEMO-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+    /* DEMO file sabotages digits with warning glyphs — serve everything EXCEPT 0-9,
+       so numbers fall back to Schibsted. Remove this line once licensed. */
+    unicode-range: U+0000-002F, U+003A-10FFFF;
+}
+@font-face {
+    font-family: 'Heuvel Grotesk';
+    src: url('/font/HeuvelGroteskDEMO-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    /* DEMO file sabotages digits with warning glyphs — serve everything EXCEPT 0-9,
+       so numbers fall back to Schibsted. Remove this line once licensed. */
+    unicode-range: U+0000-002F, U+003A-10FFFF;
+}
+
 
 /* =========================================================
    1. TOKENS
@@ -88,7 +131,7 @@ html {
 }
 
 body {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Prompt', system-ui, sans-serif;
     color: var(--text);
     /* soft directional glows instead of a flat cream fill — dropped the
        repeating dot-grid, it read as stray marks sitting on top of text */
@@ -97,7 +140,7 @@ body {
         radial-gradient(ellipse 55% 45% at 8% 70%, rgba(26, 26, 26, 0.06), transparent 60%),
         var(--bg);
     line-height: 1.55;
-    font-feature-settings: 'ss01', 'cv11';
+    font-weight: 300;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
@@ -147,10 +190,10 @@ h2,
 h3,
 h4,
 .font-display {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    line-height: 1.02;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 1.04;
     color: var(--text);
 }
 
@@ -160,10 +203,10 @@ h3 em {
     font-style: normal;
     font-weight: 600;
     color: var(--text);
-    background-image: linear-gradient(#013531, #013531);
+    background-image: linear-gradient(100deg, rgba(1, 53, 49, 0) 1%, rgba(1, 53, 49, 0.16) 6%, rgba(1, 53, 49, 0.16) 94%, rgba(1, 53, 49, 0) 99%);
     background-repeat: no-repeat;
-    background-size: 100% 0.09em;
-    background-position: 0 92%;
+    background-size: 100% 0.42em;
+    background-position: 0 76%;
 }
 
 h1 em .char,
@@ -176,7 +219,7 @@ h3 em .char {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Prompt', sans-serif;
     font-size: 0.72rem;
     font-weight: 500;
     letter-spacing: 0.18em;
@@ -410,7 +453,7 @@ main > section {
     justify-content: center;
     gap: 10px;
     padding: var(--pad-y) var(--pad-x);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Prompt', sans-serif;
     font-size: 0.92rem;
     font-weight: 500;
     letter-spacing: -0.005em;
@@ -447,7 +490,8 @@ main > section {
 }
 
 .btn--primary:hover {
-    box-shadow: 0 0 0 1px rgba(1, 53, 49, 0.55) inset, 0 8px 24px -8px var(--glow-emerald);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 0 0 1px rgba(1, 53, 49, 0.55) inset, 0 14px 30px -8px var(--glow-emerald);
 }
 
 .btn--primary::before {
@@ -464,7 +508,7 @@ main > section {
 }
 
 .btn--ghost {
-    background: var(--glass);
+    background: linear-gradient(#013531, #013531) no-repeat left center / 0% 100%, var(--glass);
     color: var(--text);
     border-color: var(--border-strong);
     backdrop-filter: blur(12px);
@@ -472,8 +516,9 @@ main > section {
 }
 
 .btn--ghost:hover {
-    background: var(--glass-strong);
-    border-color: rgba(1, 53, 49, 0.3);
+    background-size: 100% 100%, auto;
+    color: #F9F1CF;
+    border-color: #013531;
 }
 
 .btn-arrow {
@@ -515,11 +560,16 @@ main > section {
    9. HERO
    ========================================================= */
 .hero {
+    /* light hero with a soft green brand wash — airy, glow treatment like the dark site */
     min-height: 100vh;
     display: flex;
     align-items: center;
     padding: calc(var(--nav-h) + 60px) 0 80px !important;
     position: relative;
+    background:
+        radial-gradient(ellipse 70% 60% at 85% 10%, rgba(1, 53, 49, 0.16), transparent 60%),
+        radial-gradient(ellipse 60% 55% at 0% 100%, rgba(1, 53, 49, 0.10), transparent 65%),
+        var(--bg);
 }
 
 /* big graphic ring + wedge — decorative, sits above the canvas, below the copy */
@@ -530,11 +580,11 @@ main > section {
     right: 4%;
     width: clamp(220px, 26vw, 420px);
     height: clamp(220px, 26vw, 420px);
-    border: 3px solid rgba(1, 53, 49, 0.45);
+    border: 3px dashed rgba(1, 53, 49, 0.45);
     border-radius: 50%;
     z-index: 2;
     pointer-events: none;
-    transform: rotate(-8deg);
+    animation: heroRingSpin 60s linear infinite;
     box-shadow: 0 0 0 46px rgba(1, 53, 49, 0.05);
 }
 
@@ -633,6 +683,15 @@ main > section {
 }
 .hero-title em {
     opacity: 1 !important;
+    background-image: none;
+    color: transparent;
+    -webkit-text-stroke: 0.025em #013531;
+}
+
+.hero-title em .line-inner,
+.hero-title em .char {
+    color: transparent !important;
+    -webkit-text-stroke: 0.025em #013531;
 }
 
 .hero-title .char {
@@ -674,7 +733,7 @@ main > section {
 }
 
 .hero-meta-num {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 1.7rem;
     font-weight: 600;
     letter-spacing: -0.04em;
@@ -732,16 +791,16 @@ main > section {
    ========================================================= */
 .stat-band {
     padding: 90px 0 !important;
-    /* same cream as the rest of the page now — glows still mark it as its
-       own moment without breaking from the site's base colour */
+    /* soft green wash — subtle brand moment on the cream base */
     background:
-        radial-gradient(ellipse 55% 90% at 92% 0%, rgba(1, 53, 49, 0.09), transparent 65%),
-        radial-gradient(ellipse 50% 80% at 4% 100%, rgba(26, 26, 26, 0.05), transparent 60%),
-        #F9F1CF;
+        radial-gradient(ellipse 55% 90% at 92% 0%, rgba(1, 53, 49, 0.10), transparent 65%),
+        rgba(1, 53, 49, 0.06);
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
     position: relative;
     overflow: hidden;
+    transform: skewY(-2deg);
+    margin: 30px 0;
 }
 .stat-band::before {
     content: '';
@@ -757,6 +816,7 @@ main > section {
     transform: rotate(-10deg);
 }
 .stat-band-grid {
+    transform: skewY(2deg);
     position: relative;
     z-index: 1;
     display: flex;
@@ -773,9 +833,9 @@ main > section {
     text-align: center;
 }
 .stat-band-num {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: clamp(2.4rem, 5vw, 3.6rem);
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: -0.04em;
     line-height: 1;
     color: #013531;
@@ -862,7 +922,7 @@ main > section {
 }
 
 .logo-pill {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 1.5rem;
     font-weight: 600;
     letter-spacing: 0.05em;
@@ -949,7 +1009,7 @@ main > section {
 }
 
 .quote-mark {
-    font-family: 'Inter Tight', serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', serif;
     font-size: 3.5rem;
     line-height: 0.6;
     color: var(--e-500);
@@ -1129,7 +1189,7 @@ main > section {
 }
 
 .visual-stat strong {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 1.4rem;
     font-weight: 600;
     background: var(--accent-grad-text);
@@ -1191,7 +1251,7 @@ main > section {
 }
 
 .how-meta-num {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 1.6rem;
     font-weight: 600;
     background: var(--accent-grad-text);
@@ -1234,7 +1294,7 @@ main > section {
 }
 
 .step-num {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 2.4rem;
     font-weight: 500;
     letter-spacing: -0.04em;
@@ -1289,7 +1349,7 @@ main > section {
 
 /* big heading — blurred + dim by default, sharp + bright on hover */
 .how-title {
-    font-family: 'Inter Tight', 'Inter', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', 'Prompt', sans-serif;
     font-weight: 700;
     text-transform: uppercase;
     font-size: clamp(2.2rem, 7vw, 6rem);
@@ -1533,7 +1593,7 @@ main > section {
     transform: translateY(-50%);
     z-index: 0;
     pointer-events: none;
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-weight: 800;
     font-size: clamp(160px, 30vw, 420px);
     line-height: 1;
@@ -1564,6 +1624,7 @@ main > section {
 }
 
 .stat-card {
+    background: var(--surface-2);
     border-radius: var(--r-lg);
     padding: 56px 48px;
     position: relative;
@@ -1583,16 +1644,13 @@ main > section {
 
 .stat-num {
     display: block;
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: clamp(4rem, 9vw, 7rem);
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: -0.05em;
     line-height: 1;
     margin-bottom: 18px;
-    background: var(--accent-grad-text);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: #013531;
 }
 
 .stat-lbl {
@@ -1706,7 +1764,7 @@ main > section {
 
 .price-tag {
     display: inline-block;
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 1.35rem;
     font-weight: 600;
     margin-bottom: 12px;
@@ -1768,7 +1826,7 @@ main > section {
 }
 
 .price-num {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 2.6rem;
     font-weight: 600;
     letter-spacing: -0.04em;
@@ -1884,7 +1942,7 @@ main > section {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-weight: 600;
     font-size: 1.05rem;
     letter-spacing: -0.02em;
@@ -1900,7 +1958,7 @@ main > section {
 
 .testi-id strong {
     display: block;
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 1.02rem;
     font-weight: 600;
     color: var(--bone);
@@ -1977,7 +2035,7 @@ main > section {
     position: absolute;
     top: 14px;
     left: 14px;
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 0.7rem;
     color: var(--text-mute);
     letter-spacing: 0.18em;
@@ -2204,7 +2262,7 @@ main > section {
 }
 
 .contact-meta-item dd {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 1.05rem;
     font-weight: 600;
     color: var(--bone);
@@ -2247,13 +2305,21 @@ main > section {
    19. FOOTER
    ========================================================= */
 .footer {
-    /* same cream as the rest of the page, marked off by a solid teal border */
-    border-top: 2px solid #013531;
+    /* dark green bookend — text tokens flip to cream so they read on the green background */
+    --text: #F9F1CF;
+    --text-dim: #C6C6C6;
+    --text-mute: rgba(198, 198, 198, 0.55);
+    --border: #545454;
+    --border-strong: #C6C6C6;
+    --e-300: #FFEFAA;
+    --e-500: #FFEFAA;
+    border-top: 2px solid #FFEFAA;
     padding: 100px 0 40px;
     background:
-        radial-gradient(ellipse 60% 65% at 12% 0%, rgba(1, 53, 49, 0.08), transparent 70%),
-        radial-gradient(ellipse 50% 55% at 92% 100%, rgba(1, 53, 49, 0.06), transparent 70%),
-        #F9F1CF;
+        radial-gradient(ellipse 60% 65% at 12% 0%, rgba(1, 53, 49, 0.6), transparent 70%),
+        radial-gradient(ellipse 50% 55% at 92% 100%, rgba(1, 53, 49, 0.35), transparent 70%),
+        #1A1A1A;
+    color: #F9F1CF;
     position: relative;
     overflow: hidden;
     z-index: 2;
@@ -2275,16 +2341,17 @@ main > section {
     left: 50%;
     bottom: -0.14em;
     transform: translateX(-50%);
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-weight: 800;
     font-size: clamp(80px, 16vw, 260px);
     letter-spacing: -0.04em;
     line-height: 1;
     color: transparent;
-    -webkit-text-stroke: 1px rgba(1, 53, 49, 0.14);
+    -webkit-text-stroke: 1px rgba(249, 241, 207, 0.16);
     white-space: nowrap;
     pointer-events: none;
     z-index: 0;
+    animation: wmDrift 16s ease-in-out infinite alternate;
 }
 
 .footer .container {
@@ -2309,7 +2376,7 @@ main > section {
 
 .footer-email {
     display: inline-block;
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 1.05rem;
     color: var(--text);
     border-bottom: 1px solid var(--border-strong);
@@ -2543,7 +2610,7 @@ html:not(.animations-init) .word-dim {
 }
 
 .page-hero-title {
-    font-family: 'Inter Tight', 'Inter', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', 'Prompt', sans-serif;
     font-size: clamp(2.6rem, 7vw, 5.8rem);
     font-weight: 600;
     letter-spacing: -0.045em;
@@ -2584,7 +2651,7 @@ html:not(.animations-init) .word-dim {
 }
 .page-body-prose > * + * { margin-top: 1.1em; }
 .page-body-prose h2 {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 1.7rem;
     font-weight: 600;
     color: var(--text);
@@ -2616,7 +2683,7 @@ html:not(.animations-init) .word-dim {
 .page-stats-grid > div:last-child { border-right: none; padding-right: 0; }
 
 .page-stat-num {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: clamp(2.2rem, 4.4vw, 3.4rem);
     font-weight: 600;
     letter-spacing: -0.03em;
@@ -2638,7 +2705,7 @@ html:not(.animations-init) .word-dim {
     text-align: center;
 }
 .page-cta h2 {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: clamp(2rem, 4.4vw, 3.6rem);
     font-weight: 600;
     letter-spacing: -0.03em;
@@ -2716,7 +2783,7 @@ html:not(.animations-init) .word-dim {
     gap: 18px;
 }
 .services-card-num {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 0.78rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
@@ -2724,7 +2791,7 @@ html:not(.animations-init) .word-dim {
     flex-shrink: 0;
 }
 .services-card-title {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: clamp(1.4rem, 2.4vw, 1.8rem);
     font-weight: 600;
     letter-spacing: -0.02em;
@@ -2800,14 +2867,14 @@ html:not(.animations-init) .word-dim {
 }
 .services-process-step:last-child { border-bottom: none; }
 .services-process-num {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 1.3rem;
     color: var(--text-mute);
     letter-spacing: -0.02em;
     font-weight: 500;
 }
 .services-process-body h3 {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 1.2rem;
     font-weight: 600;
     margin: 0 0 4px;
@@ -2821,7 +2888,7 @@ html:not(.animations-init) .word-dim {
 }
 .services-process-day {
     text-align: right;
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 0.78rem;
     letter-spacing: 0.16em;
     text-transform: uppercase;
@@ -2860,7 +2927,7 @@ html:not(.animations-init) .word-dim {
     margin-top: 40px;
 }
 .pricing-faq-item h3 {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 1.1rem;
     font-weight: 600;
     color: var(--text);
@@ -2893,7 +2960,7 @@ html:not(.animations-init) .word-dim {
 }
 
 .work-hero-title {
-    font-family: 'Inter Tight', 'Inter', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', 'Prompt', sans-serif;
     font-size: clamp(2.6rem, 7vw, 5.8rem);
     font-weight: 600;
     letter-spacing: -0.045em;
@@ -2941,7 +3008,7 @@ html:not(.animations-init) .word-dim {
     border-bottom: 1px dashed var(--border);
 }
 .work-year-label {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: clamp(2.2rem, 4vw, 3.4rem);
     font-weight: 500;
     letter-spacing: -0.03em;
@@ -2949,7 +3016,7 @@ html:not(.animations-init) .word-dim {
     line-height: 1;
 }
 .work-year-count {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 0.78rem;
     text-transform: uppercase;
     letter-spacing: 0.18em;
@@ -2962,7 +3029,7 @@ html:not(.animations-init) .word-dim {
     margin-top: 40px;
 }
 .work-cta h2 {
-    font-family: 'Inter Tight', 'Inter', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', 'Prompt', sans-serif;
     font-size: clamp(2rem, 4.4vw, 3.6rem);
     font-weight: 600;
     letter-spacing: -0.03em;
@@ -3003,7 +3070,7 @@ html:not(.animations-init) .word-dim {
     align-items: center;
     color: var(--text-mute);
     font-size: 0.9rem;
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     margin-bottom: 32px;
     transition: color 0.2s var(--ease);
 }
@@ -3018,7 +3085,7 @@ html:not(.animations-init) .word-dim {
 }
 
 .case-tag {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 0.78rem;
     text-transform: uppercase;
     letter-spacing: 0.18em;
@@ -3027,7 +3094,7 @@ html:not(.animations-init) .word-dim {
 }
 
 .case-year {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 0.78rem;
     letter-spacing: 0.18em;
     color: var(--text-mute);
@@ -3036,7 +3103,7 @@ html:not(.animations-init) .word-dim {
 }
 
 .case-title {
-    font-family: 'Inter Tight', 'Inter', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', 'Prompt', sans-serif;
     font-size: clamp(2.4rem, 6vw, 5rem);
     font-weight: 600;
     letter-spacing: -0.045em;
@@ -3096,7 +3163,7 @@ html:not(.animations-init) .word-dim {
 .case-meta-item:last-child { border-right: none; }
 .case-meta-item:first-child { padding-left: 0; }
 .case-meta-item dt {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 0.72rem;
     text-transform: uppercase;
     letter-spacing: 0.18em;
@@ -3106,7 +3173,7 @@ html:not(.animations-init) .word-dim {
     margin: 0;
     font-size: 1rem;
     color: var(--text);
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-weight: 500;
 }
 
@@ -3167,7 +3234,7 @@ html:not(.animations-init) .word-dim {
     align-items: center;
     color: var(--text-mute);
     font-size: 0.9rem;
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     margin-bottom: 32px;
     transition: color 0.2s var(--ease);
 }
@@ -3179,7 +3246,7 @@ html:not(.animations-init) .word-dim {
 }
 
 .post-title {
-    font-family: 'Inter Tight', 'Inter', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', 'Prompt', sans-serif;
     font-size: clamp(2.2rem, 5.4vw, 4.4rem);
     font-weight: 600;
     letter-spacing: -0.04em;
@@ -3200,7 +3267,7 @@ html:not(.animations-init) .word-dim {
     display: inline-flex;
     align-items: center;
     gap: 14px;
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 0.88rem;
     color: var(--text-mute);
 }
@@ -3236,7 +3303,7 @@ html:not(.animations-init) .word-dim {
 
 .post-body > * + * { margin-top: 1.1em; }
 .post-body h2 {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 1.8rem;
     font-weight: 600;
     color: var(--text);
@@ -3246,7 +3313,7 @@ html:not(.animations-init) .word-dim {
     line-height: 1.2;
 }
 .post-body h3 {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 1.35rem;
     font-weight: 600;
     color: var(--text);
@@ -3391,7 +3458,7 @@ html:not(.animations-init) .word-dim {
     inset: 0;
     z-index: 2;
     pointer-events: none;
-    /* cream wash now, not grey — matches the rest of the page background */
+    /* green wash — the hero is a deep green brand moment now */
     background:
         radial-gradient(circle at 88% 12%, rgba(1,53,49,0.5) 0%, transparent 42%),
         radial-gradient(circle at 6% 90%, rgba(1,53,49,0.4) 0%, transparent 40%),
@@ -3466,7 +3533,7 @@ html:not(.animations-init) .word-dim {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Prompt', sans-serif;
     font-size: 0.72rem;
     font-weight: 500;
     letter-spacing: 0.18em;
@@ -3482,7 +3549,7 @@ html:not(.animations-init) .word-dim {
 
 /* heading as a div (so GSAP word-split/colour-scrub never runs on it) */
 .fan-h2 {
-    font-family: 'Inter Tight', 'Inter', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', 'Prompt', sans-serif;
     font-weight: 600;
     letter-spacing: -0.035em;
     color: var(--text);
@@ -3583,7 +3650,7 @@ html:not(.animations-init) .word-dim {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Prompt', sans-serif;
     font-size: 0.72rem;
     font-weight: 500;
     letter-spacing: 0.2em;
@@ -3597,7 +3664,7 @@ html:not(.animations-init) .word-dim {
     background: var(--e-400);
 }
 .cs-title {
-    font-family: 'Inter Tight', 'Inter', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', 'Prompt', sans-serif;
     font-weight: 600;
     letter-spacing: -0.03em;
     font-size: clamp(2rem, 4vw, 3.4rem);
@@ -3633,7 +3700,7 @@ html:not(.animations-init) .word-dim {
     padding: 8px 0;
     text-align: left;
     cursor: pointer;
-    font-family: 'Inter Tight', 'Inter', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', 'Prompt', sans-serif;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: -0.01em;
@@ -3728,7 +3795,7 @@ html:not(.animations-init) .word-dim {
     left: 50%;
     transform: translateX(-50%);
     z-index: 4;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Prompt', sans-serif;
     font-size: 0.72rem;
     font-weight: 500;
     letter-spacing: 0.22em;
@@ -3745,7 +3812,7 @@ html:not(.animations-init) .word-dim {
     pointer-events: none;
 }
 .tr-text {
-    font-family: 'Inter Tight', 'Inter', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', 'Prompt', sans-serif;
     font-size: clamp(48px, 11vw, 150px);
     font-weight: 800;
     text-transform: uppercase;
@@ -3794,7 +3861,7 @@ html:not(.animations-init) .word-dim {
 }
 .tr-box-id strong {
     display: block;
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 1rem;
     font-weight: 600;
     color: var(--bone);
@@ -4007,7 +4074,7 @@ html:not(.animations-init) .word-dim {
 .pf-head { margin-bottom: 26px; }
 .pf-tag {
     display: inline-block;
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 1.4rem;
     font-weight: 600;
     margin-bottom: 12px;
@@ -4061,7 +4128,7 @@ html:not(.animations-init) .word-dim {
     letter-spacing: 0.1em;
 }
 .pf-price {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', sans-serif;
     font-size: 2.6rem;
     font-weight: 600;
     letter-spacing: -0.04em;
@@ -4225,7 +4292,7 @@ html:not(.animations-init) .word-dim {
     align-items: center;
     gap: 8px;
     margin-bottom: 12px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Prompt', sans-serif;
     font-size: 0.72rem;
     font-weight: 600;
     letter-spacing: 0.2em;
@@ -4239,7 +4306,7 @@ html:not(.animations-init) .word-dim {
     background: var(--e-400);
 }
 .ps-heading {
-    font-family: 'Inter Tight', 'Inter', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', 'Prompt', sans-serif;
     font-weight: 800;
     font-size: clamp(38px, 6.4vw, 92px);
     letter-spacing: -.03em;
@@ -4319,7 +4386,7 @@ html:not(.animations-init) .word-dim {
 .ps-slide--active .ps-slide-idx { margin-bottom: 14px; }
 
 .ps-slide-title {
-    font-family: 'Inter Tight', 'Inter', sans-serif;
+    font-family: 'Heuvel Grotesk', 'Schibsted Grotesk', 'Prompt', sans-serif;
     font-weight: 800;
     font-size: clamp(20px, 2.5vw, 28px);
     text-transform: uppercase;
@@ -4394,7 +4461,7 @@ html:not(.animations-init) .word-dim {
     align-items: center;
     gap: 8px;
     padding: 14px 16px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Prompt', sans-serif;
     font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 0.02em;
@@ -4632,3 +4699,415 @@ html:not(.animations-init) .word-dim {
     .pstack-title { font-size: clamp(26px, 7.5vw, 38px); }
 }
 
+
+
+/* =========================================================
+   SIGNATURE TOUCHES — spin ring, watermark drift, scroll progress
+   ========================================================= */
+@keyframes heroRingSpin {
+    from { transform: rotate(-8deg); }
+    to { transform: rotate(352deg); }
+}
+
+@keyframes wmDrift {
+    from { transform: translateX(-51.5%); }
+    to { transform: translateX(-48.5%); }
+}
+
+@supports (animation-timeline: scroll()) {
+    @keyframes dsProgress {
+        to { transform: scaleX(1); }
+    }
+    body::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, #013531 0%, #FFEFAA 100%);
+        transform: scaleX(0);
+        transform-origin: 0 50%;
+        animation: dsProgress linear both;
+        animation-timeline: scroll(root);
+        z-index: 2000;
+        pointer-events: none;
+    }
+}
+
+
+/* =========================================================
+   PDF-MINIMAL LAYER — flat editorial system per brand audit.
+   Overrides everything above; the PDF's rules: flat solids,
+   two type registers (big Regular / small Light), hairlines,
+   corner meta labels, one focal point, zero gloss.
+   ========================================================= */
+
+/* 1. Typography — big Regular display, small Light body */
+body {
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+h1, h2, h3, h4, .font-display {
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+}
+
+.hero-title {
+    font-size: clamp(3rem, 8vw, 6.5rem);  /* Heuvel is ~40% wider than Schibsted — sized so the headline holds its 3-line composition */
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 0.95;
+}
+
+.hero-sub {
+    font-weight: 300;
+}
+
+/* em emphasis — solid ink + precise hairline underline (no outline, no highlighter) */
+h1 em, h2 em, h3 em {
+    background-image: linear-gradient(#013531, #013531);
+    background-size: 100% 1px;
+    background-position: 0 96%;
+}
+
+.hero-title em {
+    background-image: linear-gradient(#013531, #013531);
+    background-size: 100% 2px;
+    background-position: 0 94%;
+    color: #1A1A1A;
+    -webkit-text-stroke: 0;
+}
+
+.hero-title em .line-inner,
+.hero-title em .char {
+    color: #1A1A1A !important;
+    -webkit-text-stroke: 0;
+}
+
+/* 2. Meta labels — PDF corner style: small, Light, tracked; no pills, no tilt */
+.eyebrow,
+.hero-eyebrow {
+    background: transparent;
+    color: #013531;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    font-weight: 300;
+    letter-spacing: 0.14em;
+    transform: none !important;
+}
+
+.hero-eyebrow .line-inner {
+    color: #013531 !important;
+}
+
+.eyebrow::before,
+.hero-eyebrow::before {
+    background: #013531;
+    width: 24px;
+    height: 1px;
+}
+
+/* 3. Slide-frame device — hairline + index number over every section,
+   echoing the PDF's "Logo Pitch / 01" corner labels */
+main {
+    counter-reset: sec;
+}
+
+main > section {
+    counter-increment: sec;
+}
+
+main > section:not(.hero) > .container::before {
+    content: '';
+    position: absolute;
+    top: -56px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(1, 53, 49, 0.25);
+}
+
+main > section:not(.hero) > .container::after {
+    content: counter(sec, decimal-leading-zero);
+    position: absolute;
+    top: -44px;
+    right: 0;
+    font-size: 0.72rem;
+    font-weight: 300;
+    letter-spacing: 0.14em;
+    color: #013531;
+}
+
+/* 4. Flat surfaces — kill grain, orbs, washes, glass, blur */
+.grain,
+.orb {
+    display: none;
+}
+
+.hero {
+    background: var(--bg);
+}
+
+/* hero collage off — one focal point per view, like the PDF slides */
+.hc {
+    display: none;
+}
+
+.glass {
+    background: #F9F1CF;
+    border: 1px solid rgba(1, 53, 49, 0.3);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+.nav-wrap,
+.nav-wrap.scrolled {
+    background: #F9F1CF;
+    border-bottom: 1px solid rgba(1, 53, 49, 0.35);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+.nav-wrap::before {
+    display: none;
+}
+
+/* 5. Stat band — flat deep green slide, the PDF's cream/green alternation */
+.stat-band {
+    background: #013531;
+    border-top: none;
+    border-bottom: none;
+    transform: none;
+    margin: 0;
+}
+
+.stat-band::before {
+    display: none;
+}
+
+.stat-band-grid {
+    transform: none;
+}
+
+.stat-band-num {
+    font-weight: 400;
+    color: #F9F1CF;
+}
+
+.stat-band-lbl {
+    color: rgba(249, 241, 207, 0.55);
+}
+
+.stat-band-divider {
+    background: rgba(249, 241, 207, 0.35);
+}
+
+/* frame device flips to cream inside the green band */
+.stat-band > .container::before {
+    background: rgba(249, 241, 207, 0.3);
+}
+
+.stat-band > .container::after {
+    color: #F9F1CF;
+}
+
+/* 6. Hero ring — static 1px hairline circle; wedge off */
+.hero::before {
+    border: 1px solid rgba(1, 53, 49, 0.3);
+    box-shadow: none;
+    animation: none;
+    transform: rotate(-8deg);
+}
+
+.hero::after {
+    display: none;
+}
+
+/* 7. Geometry — tight radii, hairline borders, no glow */
+:root {
+    --r-pill: 10px;
+    --r-lg: 12px;
+    --r-md: 12px;
+    /* cream page surface system: cream + green only; grey is /light's base.
+       e-950 is the text-on-green token — PDF always pairs green with cream */
+    --e-950: #F9F1CF;
+    --surface-2: #F9F1CF;
+    --surface-3: #F9F1CF;
+}
+
+.btn--primary,
+.btn--primary:hover {
+    box-shadow: none;
+}
+
+.btn--primary:hover {
+    transform: translateY(-2px);
+}
+
+.btn--primary::before {
+    display: none;
+}
+
+.btn--ghost {
+    border-color: rgba(1, 53, 49, 0.4);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+.pf-card-inner,
+.pf-card--featured .pf-card-inner {
+    box-shadow: none;
+}
+
+/* active card = flat green slide; "green = highlighted", same semantics as the stat band */
+.pf-card--active {
+    --text: #F9F1CF;
+    --text-dim: rgba(249, 241, 207, 0.65);
+    --text-mute: rgba(249, 241, 207, 0.5);
+    --border: rgba(249, 241, 207, 0.25);
+    --accent-grad: #F9F1CF;
+    --accent-grad-text: #F9F1CF;
+    --e-950: #013531;
+}
+
+.pf-card--active .pf-card-inner {
+    background: #013531;
+    border-color: #013531;
+    box-shadow: none;
+    color: var(--text);
+}
+
+.pf-card--active .pf-card-inner::after {
+    display: none;
+}
+
+.pf-card--active .pf-card-inner::before {
+    box-shadow: none;
+}
+
+.pf-card--active .pf-feats li::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23F9F1CF'%3E%3Cpath fill-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z' clip-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+.pf-card--active .btn--ghost {
+    background: transparent;
+    color: #F9F1CF;
+    border-color: rgba(249, 241, 207, 0.45);
+}
+
+.pf-card--active .btn--ghost:hover {
+    background: #F9F1CF;
+    color: #013531;
+    border-color: #F9F1CF;
+}
+
+.price-card--featured {
+    box-shadow: none;
+    transform: none;
+}
+
+.badge,
+.pf-badge {
+    box-shadow: none;
+    transform: translateX(-50%);
+}
+
+.stat-card {
+    border: 1px solid rgba(1, 53, 49, 0.3);
+}
+
+.stat-card::before {
+    display: none;
+}
+
+/* 8. Footer watermark — thin precise outline, still */
+.footer::after {
+    font-weight: 400;
+    animation: none;
+}
+
+/* em emphasis weight — PDF uses Regular everywhere; underline alone carries emphasis */
+h1 em, h2 em, h3 em,
+h1 em .char, h2 em .char, h3 em .char {
+    font-weight: 400;
+}
+
+
+/* =========================================================
+   HUMAN PASS — kill the template tropes: no underlines,
+   no scroll indicator, no decorative shapes. Emphasis is
+   plain green type, the PDF's own voice on cream.
+   ========================================================= */
+h1 em, h2 em, h3 em,
+.hero-title em {
+    background-image: none;
+    color: #013531;
+}
+
+h1 em .line-inner, h2 em .line-inner, h3 em .line-inner,
+h1 em .char, h2 em .char, h3 em .char,
+.hero-title em .line-inner,
+.hero-title em .char {
+    color: #013531 !important;
+}
+
+.hero-scroll {
+    display: none;
+}
+
+.hero::before,
+.hero-inner::before,
+.hero-inner::after {
+    display: none;
+}
+
+/* process steps — Regular weight like everything else; no blur gimmick */
+.how-title {
+    font-weight: 400;
+}
+
+.how-item:hover .how-title,
+.how-item .how-title {
+    filter: none;
+}
+
+/* meta labels — no leading dash; the PDF's corner labels are plain text */
+.eyebrow::before,
+.hero-eyebrow::before {
+    display: none;
+}
+
+/* trusted marquee — green voice on cream, not silver grey; Regular weight per system */
+.trusted-label {
+    color: rgba(1, 53, 49, 0.55);
+    font-weight: 300;
+}
+
+.logo-pill {
+    font-weight: 400;
+    color: rgba(1, 53, 49, 0.5) !important;
+}
+
+.logo-pill:hover {
+    color: #013531;
+}
+
+.logo-dot {
+    color: rgba(1, 53, 49, 0.35);
+}
+
+/* coverflow side cards — flat fade, not the muddy brightness filter */
+.pf-card--prev,
+.pf-card--next {
+    filter: none;
+    opacity: 0.55;
+}
+
+/* pricing section decorative ring off — flat system */
+.pf::before {
+    display: none;
+}

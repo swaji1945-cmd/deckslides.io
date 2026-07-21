@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="footer-top">
           <div className="footer-brand">
             <Link href="/cream" className="logo" aria-label="pitchdeck home">
-              <img src="/images/logo-ink.svg" alt="pitchdeck" className="logo-img logo-img--lg" width={200} height={40} />
+              <img src="/images/logo-light.svg" alt="pitchdeck" className="logo-img logo-img--lg" width={200} height={40} />
             </Link>
             <p>Premium presentation design for founders who can’t afford to look average.</p>
             <a href={`mailto:${site.email}`} className="footer-email">{site.email}</a>
